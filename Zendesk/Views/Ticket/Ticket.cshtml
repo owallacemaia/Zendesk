@@ -1,0 +1,17 @@
+﻿@model Zendesk.Models.TicketInfo
+@{
+    ViewData["Title"] = "Informações do Ticket";
+}
+
+
+
+<div class="container">
+    <h1>@Model.Ticket.Subject</h1>
+    <hr />
+    <p>@Model.Ticket.Description</p>
+    <hr />
+    <span>Data da Criação: @DateTime.Parse(Model.Ticket.Created_At)</span> | <span>Status: @Model.Ticket.Status</span>
+    <hr />
+    <input class="btn btn-danger" name="action" onclick="history.back()" type="submit" value="Voltar"/>
+</div>
+

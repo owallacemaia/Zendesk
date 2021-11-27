@@ -1,0 +1,34 @@
+﻿@model Zendesk.Models.AllTickets
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Status</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Data</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @{
+        foreach(var ticket in Model.Tickets)
+            {
+                <tr>
+                    <td>@ticket.Id</td>
+                    <td>@ticket.Subject</td>
+                    <td>@ticket.Status</td>
+                    <td>@ticket.Type</td>
+                    <td>@DateTime.Parse(ticket.Created_At)</td>
+                    <td><a class="btn btn-primary" asp-controller="Ticket" asp-action="ticket" asp-route-id="@ticket.Id">Visualizar</a></td>
+                </tr>   
+            }
+    }
+  </tbody>
+</table>
+</div>
